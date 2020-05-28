@@ -1,11 +1,13 @@
 package com.kipli.training.activity.ui.tambahTraining;
 
+import android.content.Intent;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.kipli.training.activity.ui.training.TrainingFragment;
 import com.kipli.training.model.ResponseErrorModel;
 import com.kipli.training.rest.ApiConfig;
 import com.kipli.training.rest.ApiService;
@@ -28,9 +30,11 @@ public class TambahTrainingViewModel extends ViewModel {
         return responseErrorModelMutableLiveData;
     }
 
-    private void postDataTraining(String kode_training, String nama_training, String type_training, String kuota_training, String harga_training, String tanggal_training, String gambar_training) {
+    private void postDataTraining(String kode_training, String nama_training, String type_training,
+                                  String kuota_training, String harga_training, String tanggal_training, String gambar_training) {
         ApiService apiService = ApiConfig.getApiService();
-        apiService.postTambahTraining(kode_training,
+        apiService.postTambahTraining(
+                kode_training,
                 nama_training,
                 type_training,
                 kuota_training,
@@ -41,7 +45,8 @@ public class TambahTrainingViewModel extends ViewModel {
                     @Override
                     public void onResponse(Call<ResponseErrorModel> call, Response<ResponseErrorModel> response) {
                         if (response.isSuccessful()) {
-                            Log.d(TAG, "onResponse: SUKSES > " + response.body());
+                            Log.d(TAG, "onResponse: SUKSES >" + response.body());
+
                         }
                     }
 

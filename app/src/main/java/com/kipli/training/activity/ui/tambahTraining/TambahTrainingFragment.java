@@ -1,5 +1,6 @@
 package com.kipli.training.activity.ui.tambahTraining;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.kipli.training.MainActivity;
 import com.kipli.training.R;
+import com.kipli.training.activity.HomeActivity;
+import com.kipli.training.activity.ui.training.TrainingFragment;
 import com.kipli.training.model.ResponseErrorModel;
 
 public class TambahTrainingFragment extends Fragment {
@@ -53,12 +57,8 @@ public class TambahTrainingFragment extends Fragment {
                         edtHargaTraining.getText().toString().trim(),"xx-xx-xx",
                         edtGambarTraining.getText().toString().trim()
 
-                ).observe(getActivity(), new Observer<ResponseErrorModel>() {
-                    @Override
-                    public void onChanged(ResponseErrorModel trainingResponse) {
-                        Toast.makeText(getActivity(), "Sukses", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                ).observe(getActivity(), trainingResponse ->
+                        Toast.makeText(getActivity(), "Sukses", Toast.LENGTH_SHORT).show());
             }
         });
         return root;

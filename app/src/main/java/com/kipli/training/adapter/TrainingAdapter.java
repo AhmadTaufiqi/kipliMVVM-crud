@@ -62,7 +62,8 @@ public class TrainingAdapter extends RecyclerView.Adapter<TrainingAdapter.Traini
         holder.tvHargaTrainingItem.setText(listTraining.get(position).getHargaTraining());
         holder.tvTanggalTrainingItem.setText(listTraining.get(position).getTanggalTraining());
         holder.tvStatusTrainingItem.setText(listTraining.get(position).getStatusTraining());
-        Glide.with(context).load(listTraining.get(position).getGambarTraining()).error(R.drawable.ic_menu_gallery).into(holder.ivImageTrainingItem);
+        Glide.with(context).load(listTraining.get(position).getGambarTraining()).error(R.drawable.ic_menu_gallery)
+                .into(holder.ivImageTrainingItem);
 
         holder.btnAktifkan.setOnClickListener(new View.OnClickListener() {
             @Override
